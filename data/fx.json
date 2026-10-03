@@ -1,0 +1,103 @@
+{
+  "schema": 1,
+  "updated_at": "2026-10-03T11:11:29Z",
+  "fx_date": "2026-10-02",
+  "base": "INR",
+  "notice": "Daily reference rates for estimates only. Not live trading, bank or card rates.",
+  "source": {
+    "text": "European Central Bank reference rates via Frankfurter",
+    "url": "https://frankfurter.dev"
+  },
+  "rates": {
+    "USD": {
+      "base_per_unit": 96.32,
+      "unit_per_base": 0.01038206,
+      "pegged_to_usd": false
+    },
+    "EUR": {
+      "base_per_unit": 108.119,
+      "unit_per_base": 0.00924907,
+      "pegged_to_usd": false
+    },
+    "GBP": {
+      "base_per_unit": 127.1501,
+      "unit_per_base": 0.00786472,
+      "pegged_to_usd": false
+    },
+    "AED": {
+      "base_per_unit": 26.2274,
+      "unit_per_base": 0.03812811,
+      "pegged_to_usd": true
+    },
+    "SAR": {
+      "base_per_unit": 25.6853,
+      "unit_per_base": 0.03893272,
+      "pegged_to_usd": true
+    },
+    "QAR": {
+      "base_per_unit": 26.4615,
+      "unit_per_base": 0.0377907,
+      "pegged_to_usd": true
+    },
+    "OMR": {
+      "base_per_unit": 250.5072,
+      "unit_per_base": 0.0039919,
+      "pegged_to_usd": true
+    },
+    "BHD": {
+      "base_per_unit": 256.1702,
+      "unit_per_base": 0.00390365,
+      "pegged_to_usd": true
+    },
+    "SGD": {
+      "base_per_unit": 75.2618,
+      "unit_per_base": 0.01328696,
+      "pegged_to_usd": false
+    },
+    "MYR": {
+      "base_per_unit": 23.5818,
+      "unit_per_base": 0.04240552,
+      "pegged_to_usd": false
+    },
+    "THB": {
+      "base_per_unit": 2.8671,
+      "unit_per_base": 0.3487853,
+      "pegged_to_usd": false
+    },
+    "HKD": {
+      "base_per_unit": 12.2746,
+      "unit_per_base": 0.08146906,
+      "pegged_to_usd": false
+    },
+    "CNY": {
+      "base_per_unit": 14.3663,
+      "unit_per_base": 0.06960756,
+      "pegged_to_usd": false
+    },
+    "JPY": {
+      "base_per_unit": 0.6109,
+      "unit_per_base": 1.63693937,
+      "pegged_to_usd": false
+    },
+    "AUD": {
+      "base_per_unit": 66.8378,
+      "unit_per_base": 0.01496159,
+      "pegged_to_usd": false
+    },
+    "NZD": {
+      "base_per_unit": 54.0547,
+      "unit_per_base": 0.01849979,
+      "pegged_to_usd": false
+    },
+    "CAD": {
+      "base_per_unit": 67.6404,
+      "unit_per_base": 0.01478405,
+      "pegged_to_usd": false
+    },
+    "CHF": {
+      "base_per_unit": 116.5199,
+      "unit_per_base": 0.00858223,
+      "pegged_to_usd": false
+    }
+  }
+}
