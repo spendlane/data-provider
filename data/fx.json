@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-10-03T12:17:31Z",
+  "updated_at": "2026-10-03T16:15:35Z",
   "fx_date": "2026-10-03",
   "base": "INR",
   "notice": "Daily reference rates for estimates only. Not live trading, bank or card rates.",
@@ -192,6 +192,24 @@
     "DKK": {
       "base_per_unit": 14.497,
       "unit_per_base": 0.06897972,
+      "pegged_to_usd": false,
+      "rate_date": "2026-10-03"
+    },
+    "CZK": {
+      "base_per_unit": 4.428,
+      "unit_per_base": 0.22583463,
+      "pegged_to_usd": false,
+      "rate_date": "2026-10-03"
+    },
+    "PLN": {
+      "base_per_unit": 24.7548,
+      "unit_per_base": 0.04039626,
+      "pegged_to_usd": false,
+      "rate_date": "2026-10-03"
+    },
+    "HUF": {
+      "base_per_unit": 0.2941,
+      "unit_per_base": 3.40020801,
       "pegged_to_usd": false,
       "rate_date": "2026-10-03"
     },
