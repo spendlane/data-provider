@@ -74,11 +74,13 @@ Indian gold prices are higher than the international price converted to rupees b
 
 | Setting | India value | Meaning |
 | --- | --- | --- |
-| `import_duty` | 0.06 | Customs duty incl. AIDC (6%), included in the market price |
+| `import_duty` | 0.15 | Customs duty incl. AIDC (15% since 13 May 2026), included in the market price |
 | `market_premium` | 0.0 | Extra domestic premium or discount vs. the landed price; tune if your prices run consistently off local benchmarks |
 | `sales_tax` | 0.03 | GST (3%), shown separately as the `incl_tax` price |
 
-**Verify these before launch and after every Union Budget**, since duty rates change. The values here reflect rules as of mid-2026.
+**Verify these before launch and after every Union Budget**, since duty rates change. The values here were verified in October 2026.
+
+The feed is a "world price + duty" estimate. It usually lands 1–2% below retail rate sites such as Goodreturns and a few percent below the IBJA benchmark, because Indian rates are set during Indian trading hours and include a small domestic premium. Raise `market_premium` (for example 0.015) if you want it closer to retail sites.
 
 Display units for India: gram, 8 grams (pavan, common in South India), 10 grams (the usual quoted unit), and tola (11.6638 g). Add or remove units in the config; the app reads them from the feed.
 
@@ -117,13 +119,13 @@ Display units follow local custom: tola (PK, NP, AE), vori/bhori (BD, the same w
     "IN": {
       "currency": "INR",
       "fx_per_usd": 88.0,
-      "adjustments": { "import_duty": 0.06, "market_premium": 0.0, "sales_tax": 0.03 },
+      "adjustments": { "import_duty": 0.15, "market_premium": 0.0, "sales_tax": 0.03 },
       "units": { "gram": 1, "8 grams (pavan)": 8, "10 grams": 10, "tola": 11.6638038 },
       "prices": {
-        "gram":     { "ex_tax": { "24K": 11996.09, "22K": 10988.42, "18K": 8997.06, "14K": 7017.71 },
-                      "incl_tax": { "24K": 12355.97, "22K": 11318.07, "18K": 9266.98, "14K": 7228.24 } },
-        "10 grams": { "ex_tax": { "24K": 119960.87, "22K": 109884.15, "...": 0 },
-                      "incl_tax": { "24K": 123559.69, "22K": 113180.68, "...": 0 } }
+        "gram":     { "ex_tax": { "24K": 13014.62, "22K": 11921.39, "18K": 9760.97, "14K": 7613.55 },
+                      "incl_tax": { "24K": 13405.06, "22K": 12279.04, "18K": 10053.8, "14K": 7841.96 } },
+        "10 grams": { "ex_tax": { "24K": 130146.22, "22K": 119213.94, "...": 0 },
+                      "incl_tax": { "24K": 134050.61, "22K": 122790.36, "...": 0 } }
       }
     }
   }
@@ -146,7 +148,7 @@ Purity factors: 24K = 1.0, 22K = 0.916, 18K = 0.75, 14K = 0.585.
 
 - A spot price outside 500–20,000 USD/oz is rejected.
 - A move of more than 15% since the last run is rejected as a likely bad read.
-- Adjustment values outside 0–1 in the config stop the run (catches "6" typed instead of "0.06").
+- Adjustment values outside 0–1 in the config stop the run (catches "15" typed instead of "0.15").
 - A failed gold run leaves `rates.json` at the last good values; exchange rates still publish, and the job is marked failed so you notice.
 
 ## MetalCharts free-tier rules
