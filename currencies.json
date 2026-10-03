@@ -1,0 +1,12 @@
+{
+  "_note": "Exchange-rate feed settings. 'base' is the currency users think in. 'currencies' are published in data/fx.json. ECB doesn't publish Gulf currencies, so they come from fixed USD pegs below (also used by the gold feed). Cross rates for pegged currencies go through USD.",
+  "base": "INR",
+  "currencies": ["USD", "EUR", "GBP", "AED", "SAR", "QAR", "OMR", "BHD", "SGD", "MYR", "THB", "HKD", "CNY", "JPY", "AUD", "NZD", "CAD", "CHF"],
+  "pegs_per_usd": {
+    "AED": 3.6725,
+    "SAR": 3.75,
+    "QAR": 3.64,
+    "OMR": 0.3845,
+    "BHD": 0.376
+  }
+}
