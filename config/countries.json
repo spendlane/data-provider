@@ -1,11 +1,12 @@
 {
-  "_note": "All adjustments are fractions (0.06 = 6%). import_duty and market_premium are added to the international price; sales_tax (GST/VAT) is shown separately as an 'incl_tax' price. Values marked 0.0 are placeholders. The India figures (15% customs duty incl. AIDC, effective 13 May 2026 under notification 15/2026-Customs; 3% GST) were verified in October 2026: VERIFY before launch and after every Union Budget. USD pegs for Gulf currencies live in config/currencies.json. 'units' maps a display unit to its weight in grams. One entry per SpendLane currency; 'EU' covers every eurozone country (map the device region to EU in the app).",
+  "_note": "All adjustments are fractions (0.06 = 6%). import_duty and market_premium are added to the international price; sales_tax (GST/VAT) is shown separately as an 'incl_tax' price. Values marked 0.0 are placeholders; set 'adjustments_verified': true on a country once its real duty, premium and tax are filled in (it defaults to false, and the feed passes it through so the app can label unverified prices). The India figures (15% customs duty incl. AIDC, effective 13 May 2026 under notification 15/2026-Customs; 3% GST) were verified in October 2026: VERIFY before launch and after every Union Budget. USD pegs for Gulf currencies live in config/currencies.json. 'units' maps a display unit to its weight in grams. One entry per SpendLane currency; 'EU' covers every eurozone country (map the device region to EU in the app).",
   "countries": {
     "IN": {
       "currency": "INR",
       "import_duty": 0.15,
       "market_premium": 0.0,
       "sales_tax": 0.03,
+      "adjustments_verified": true,
       "units": {
         "gram": 1,
         "8 grams (pavan)": 8,

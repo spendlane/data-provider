@@ -3,7 +3,7 @@
 A free gold price and exchange-rate feed for an offline-first app, focused on India. A GitHub Actions job runs every 6 hours. It publishes two files to GitHub Pages:
 
 - `data/fx.json`: exchange rates against INR for 35 currencies, every currency the SpendLane app supports plus OMR (central bank reference rates via Frankfurter, plus fixed USD pegs for Gulf currencies).
-- `data/rates.json`: gold prices for 36 countries, one per supported currency. The job fetches the gold spot price from MetalCharts, computes **derived** local prices (per gram, per 10 grams, per pavan, per tola; by karat; with and without GST), and writes them here.
+- `data/rates.json`: gold prices for 36 countries, one per supported currency. The job fetches the gold spot price from MetalCharts, computes a **derived** local price per gram for each karat (ex tax), and writes it here with the display units and tax rate the app needs to show per-10-gram, pavan or tola prices with and without GST.
 
 The app downloads both files when online and stores them in SQLite. The two feeds are independent: if one source fails, the other still publishes, and the failed one keeps its last good file.
 
@@ -40,7 +40,7 @@ https://<your-user>.github.io/gold-rates-feed/data/rates.json
 
 Daily snapshots for trend charts at the same base URL: `data/fx-daily/YYYY-MM-DD.json` (named by the latest rate date) and `data/daily/YYYY-MM-DD.json` (gold).
 
-GitHub Pages has a soft bandwidth limit of 100 GB a month. `rates.json` is about 33 KB and `fx.json` about 6 KB, so a full refresh is roughly 40 KB: about 2.5 million refreshes a month. GitHub's terms say Pages isn't meant as free hosting for a commercial business, so move the file to a CDN or object storage if the app grows or earns significant revenue. Only the URL in the app changes.
+GitHub Pages has a soft bandwidth limit of 100 GB a month. `rates.json` is about 16 KB and `fx.json` about 6 KB, so a full refresh is roughly 22 KB: about 4.5 million refreshes a month. GitHub's terms say Pages isn't meant as free hosting for a commercial business, so move the file to a CDN or object storage if the app grows or earns significant revenue. Only the URL in the app changes.
 
 ## Exchange rates (fx.json)
 
@@ -76,17 +76,17 @@ Indian gold prices are higher than the international price converted to rupees b
 | --- | --- | --- |
 | `import_duty` | 0.15 | Customs duty incl. AIDC (15% since 13 May 2026), included in the market price |
 | `market_premium` | 0.0 | Extra domestic premium or discount vs. the landed price; tune if your prices run consistently off local benchmarks |
-| `sales_tax` | 0.03 | GST (3%), shown separately as the `incl_tax` price |
+| `sales_tax` | 0.03 | GST (3%); the app adds it for the incl-GST price |
 
 **Verify these before launch and after every Union Budget**, since duty rates change. The values here were verified in October 2026.
 
 The feed is a "world price + duty" estimate. It usually lands 1–2% below retail rate sites such as Goodreturns and a few percent below the IBJA benchmark, because Indian rates are set during Indian trading hours and include a small domestic premium. Raise `market_premium` (for example 0.015) if you want it closer to retail sites.
 
-Display units for India: gram, 8 grams (pavan, common in South India), 10 grams (the usual quoted unit), and tola (11.6638 g). Add or remove units in the config; the app reads them from the feed.
+Display units for India: gram, 8 grams (pavan, common in South India), 10 grams (the usual quoted unit), and tola (11.6638 g). Add or remove units in the config; the app reads them from the feed and multiplies `price_per_gram` by them.
 
 Which price to show:
-- **Net worth value:** use `ex_tax` 22K or 24K per gram × the user's weight. Resale value doesn't include GST.
-- **"Today's gold rate" display:** most Indian rate boards quote per 10 grams, often without GST. Show `ex_tax` with a small "+3% GST" note, or show both.
+- **Net worth value:** use `price_per_gram` for 22K or 24K × the user's weight. Resale value doesn't include GST.
+- **"Today's gold rate" display:** most Indian rate boards quote per 10 grams, often without GST. Show `price_per_gram × 10` with a small "+3% GST" note, or show both.
 - Always label values as **estimated market value**. Jeweler rates vary by city and shop, and making charges are never recoverable.
 
 ## Supported countries
@@ -106,11 +106,11 @@ Only India has real duty and tax values. All other countries use `0.0` placehold
 
 Display units follow local custom: tola (PK, NP, AE), vori/bhori (BD, the same weight as a tola), pavan (IN, LK), tael (HK 37.429 g, VN luong 37.5 g), chi (VN, 3.75 g), don (KR, 3.75 g) and baht weight (TH, 15.244 g). Most others use grams and troy ounces.
 
-## Gold feed format (rates.json, schema 2)
+## Gold feed format (rates.json, schema 3)
 
 ```json
 {
-  "schema": 2,
+  "schema": 3,
   "updated_at": "2026-10-02T06:17:05Z",
   "fx_date": "2026-10-01",
   "notice": "Estimated market values derived for in-app display only. Not a dealer quote.",
@@ -120,13 +120,9 @@ Display units follow local custom: tola (PK, NP, AE), vori/bhori (BD, the same w
       "currency": "INR",
       "fx_per_usd": 88.0,
       "adjustments": { "import_duty": 0.15, "market_premium": 0.0, "sales_tax": 0.03 },
+      "adjustments_verified": true,
       "units": { "gram": 1, "8 grams (pavan)": 8, "10 grams": 10, "tola": 11.6638038 },
-      "prices": {
-        "gram":     { "ex_tax": { "24K": 13014.62, "22K": 11921.39, "18K": 9760.97, "14K": 7613.55 },
-                      "incl_tax": { "24K": 13405.06, "22K": 12279.04, "18K": 10053.8, "14K": 7841.96 } },
-        "10 grams": { "ex_tax": { "24K": 130146.22, "22K": 119213.94, "...": 0 },
-                      "incl_tax": { "24K": 134050.61, "22K": 122790.36, "...": 0 } }
-      }
+      "price_per_gram": { "24K": 13014.6222, "22K": 11921.3939, "18K": 9760.9667, "14K": 7613.554 }
     }
   }
 }
@@ -134,13 +130,34 @@ Display units follow local custom: tola (PK, NP, AE), vori/bhori (BD, the same w
 
 Numbers above come from a test run with made-up inputs (gold at 4,000 USD/oz, 88 INR/USD); they are not real rates.
 
+The feed publishes one number per karat: the local price of 1 gram, excluding sales tax, to 4 decimal places. Everything else is a multiplication the app does:
+
+| Field | Meaning |
+| --- | --- |
+| `price_per_gram` | Local price of 1 gram by karat, ex tax, duty and premium included |
+| `units` | Display units and their weight in grams |
+| `adjustments.sales_tax` | Fraction to add for the incl-tax price (GST, VAT) |
+| `adjustments_verified` | `true` when duty, premium and tax are real values; `false` while they are `0.0` placeholders (price = international price converted to local currency) |
+
+When `adjustments_verified` is `false`, label the price as "International gold price. Local duty and taxes not included."
+
 ## How the price is calculated
+
+In the feed:
 
 ```
 local 24K per gram (ex tax) = (USD per troy oz ÷ 31.1035) × FX rate × (1 + import_duty + market_premium)
-price (ex tax)   = local 24K per gram × grams in unit × purity factor
-price (incl tax) = price (ex tax) × (1 + sales_tax)
+price_per_gram[karat]       = local 24K per gram × purity factor
 ```
+
+In the app:
+
+```
+price for a unit (ex tax)   = price_per_gram[karat] × units[unit]
+price (incl tax)            = price (ex tax) × (1 + sales_tax)
+```
+
+Round only when displaying. Rounding the per-gram price first and then multiplying adds error.
 
 Purity factors: 24K = 1.0, 22K = 0.916, 18K = 0.75, 14K = 0.585.
 
@@ -193,11 +210,11 @@ CREATE TABLE IF NOT EXISTS gold_holdings (
 Refresh logic in the app:
 
 1. On app open (and on pull-to-refresh), if online and the latest stored `updated_at` is older than 6 hours, download both files. Treat them independently: a failed or invalid download of one doesn't block the other.
-2. Reject `rates.json` if `schema` is not 2 or the user's country is missing; reject `fx.json` if `schema` is not 1.
-3. Insert only the user's country rows (from `prices.gram`) in one transaction. Keep the last 400 days for trend charts and delete older rows.
+2. Reject `rates.json` if `schema` is not 3 or the user's country is missing; reject `fx.json` if `schema` is not 1.
+3. Insert only the user's country rows (from `price_per_gram`, with `price_per_gram_incl_tax = price_per_gram × (1 + sales_tax)`) in one transaction. Keep the last 400 days for trend charts and delete older rows.
 4. Value each gold holding as `weight_grams × price_per_gram` for its karat, and add the total to net worth.
 5. Convert each foreign-currency account to INR as `balance × base_per_unit` using the latest `fx_rates` row for its currency. Store balances in their own currency and convert only for display and totals.
-6. For unit displays (10 g, pavan, tola), multiply the per-gram price by the gram values in the feed's `units`.
+6. For unit displays (10 g, pavan, tola), multiply the per-gram price by the gram values in the feed's `units`. If `adjustments_verified` is `false`, show the "local duty and taxes not included" label.
 7. Show "Last updated" plus the MetalCharts attribution link next to gold values, and "Rates: central bank reference, <fx_date>" next to converted amounts. Show a gentle "rates may be out of date" note if gold is older than 48 hours or `fx_date` is older than 5 days.
 
 ## Notes

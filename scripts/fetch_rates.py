@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Fetch the gold spot price (MetalCharts) and FX rates, then publish DERIVED local gold prices as JSON.
 
-The public file contains only derived values (local price per unit, by karat, with and
-without sales tax), never the raw spot quote.
+The public file contains only derived values (local ex-tax price per gram, by karat), never the
+raw spot quote. The app applies display units (config 'units', in grams) and sales tax itself.
 
 Uses only the Python standard library, so the workflow needs no pip install.
 If any step fails, the script exits non-zero WITHOUT touching the existing files,
@@ -18,7 +18,7 @@ CONFIG_FILE = CONFIG_DIR / "countries.json"
 LATEST_FILE = DATA_DIR / "rates.json"
 DAILY_DIR = DATA_DIR / "daily"
 
-SCHEMA_VERSION = 2
+SCHEMA_VERSION = 3
 TROY_OUNCE_GRAMS = 31.1034768
 PURITY = {"24K": 1.0, "22K": 0.916, "18K": 0.75, "14K": 0.585}
 
@@ -42,6 +42,8 @@ def load_config() -> dict:
         units = cfg.get("units") or {"gram": 1}
         if "gram" not in units:
             fail(f"{code}.units must include 'gram'")
+        if not isinstance(cfg.get("adjustments_verified", False), bool):
+            fail(f"{code}.adjustments_verified must be true or false")
     return countries
 
 
@@ -68,11 +70,13 @@ def previous_usd_per_gram() -> float | None:
         return None
     try:
         prev = json.loads(LATEST_FILE.read_text(encoding="utf-8"))
-        if prev.get("schema") != SCHEMA_VERSION:
+        schema = prev.get("schema")
+        if schema not in (2, SCHEMA_VERSION):
             return None
         for entry in prev["countries"].values():
             adj = entry["adjustments"]
-            local = entry["prices"]["gram"]["ex_tax"]["24K"]
+            # Schema 2 published every unit with and without tax; schema 3 only the per-gram price.
+            local = entry["price_per_gram"]["24K"] if schema == SCHEMA_VERSION else entry["prices"]["gram"]["ex_tax"]["24K"]
             return local / (1 + adj["import_duty"] + adj["market_premium"]) / entry["fx_per_usd"]
     except (json.JSONDecodeError, OSError, KeyError, ZeroDivisionError, TypeError):
         return None
@@ -85,22 +89,18 @@ def build_country(cfg: dict, usd_per_gram: float, fx: dict[str, float]) -> dict:
     adjustments = {key: float(cfg.get(key, 0.0)) for key in ADJUSTMENT_KEYS}
     units = cfg.get("units") or {"gram": 1}
 
-    # Duty and market premium are part of the local market price; sales tax is shown separately.
+    # Duty and market premium are part of the local market price; the app adds sales tax for display.
     local_24k_ex_tax = usd_per_gram * fx_per_usd * (1 + adjustments["import_duty"] + adjustments["market_premium"])
-    tax_multiplier = 1 + adjustments["sales_tax"]
-
-    prices = {}
-    for unit, grams in units.items():
-        ex_tax = {k: round(local_24k_ex_tax * grams * f, 2) for k, f in PURITY.items()}
-        incl_tax = {k: round(local_24k_ex_tax * grams * f * tax_multiplier, 2) for k, f in PURITY.items()}
-        prices[unit] = {"ex_tax": ex_tax, "incl_tax": incl_tax}
 
     return {
         "currency": currency,
         "fx_per_usd": round(fx_per_usd, 6),
         "adjustments": adjustments,
+        # False while duty/premium/tax are 0.0 placeholders: the price is the plain international price.
+        "adjustments_verified": cfg.get("adjustments_verified", False),
         "units": units,
-        "prices": prices,
+        # 4 decimals so per-gram × unit weight stays exact to the paisa (and fits 3-decimal currencies).
+        "price_per_gram": {k: round(local_24k_ex_tax * f, 4) for k, f in PURITY.items()},
     }
 
 
