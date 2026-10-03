@@ -359,6 +359,36 @@
         "10 grams": 10,
         "tola": 11.6638038
       }
+    },
+    "CZ": {
+      "currency": "CZK",
+      "import_duty": 0.0,
+      "market_premium": 0.0,
+      "sales_tax": 0.0,
+      "units": {
+        "gram": 1,
+        "ounce": 31.1034768
+      }
+    },
+    "PL": {
+      "currency": "PLN",
+      "import_duty": 0.0,
+      "market_premium": 0.0,
+      "sales_tax": 0.0,
+      "units": {
+        "gram": 1,
+        "ounce": 31.1034768
+      }
+    },
+    "HU": {
+      "currency": "HUF",
+      "import_duty": 0.0,
+      "market_premium": 0.0,
+      "sales_tax": 0.0,
+      "units": {
+        "gram": 1,
+        "ounce": 31.1034768
+      }
     }
   }
 }

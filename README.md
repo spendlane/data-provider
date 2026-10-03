@@ -2,8 +2,8 @@
 
 A free gold price and exchange-rate feed for an offline-first app, focused on India. A GitHub Actions job runs every 6 hours. It publishes two files to GitHub Pages:
 
-- `data/fx.json`: exchange rates against INR for 35 currencies, every currency the SpendLane app supports plus OMR (central bank reference rates via Frankfurter, plus fixed USD pegs for Gulf currencies).
-- `data/rates.json`: gold prices for 36 countries, one per supported currency. The job fetches the gold spot price from MetalCharts, computes a **derived** local price per gram for each karat (ex tax), and writes it here with the display units and tax rate the app needs to show per-10-gram, pavan or tola prices with and without GST.
+- `data/fx.json`: exchange rates against INR for 38 currencies, every currency the SpendLane app supports plus OMR (central bank reference rates via Frankfurter, plus fixed USD pegs for Gulf currencies).
+- `data/rates.json`: gold prices for 39 countries, one per supported currency. The job fetches the gold spot price from MetalCharts, computes a **derived** local price per gram for each karat (ex tax), and writes it here with the display units and tax rate the app needs to show per-10-gram, pavan or tola prices with and without GST.
 
 The app downloads both files when online and stores them in SQLite. The two feeds are independent: if one source fails, the other still publishes, and the failed one keeps its last good file.
 
@@ -98,7 +98,7 @@ Which price to show:
 | South Asia | IN (INR), PK (PKR), BD (BDT), LK (LKR), NP (NPR) |
 | Gulf | AE (AED), SA (SAR), QA (QAR), KW (KWD), BH (BHD), OM (OMR) |
 | East and Southeast Asia | SG (SGD), MY (MYR), TH (THB), ID (IDR), PH (PHP), VN (VND), KR (KRW), JP (JPY), CN (CNY), HK (HKD) |
-| Europe | EU (EUR), GB (GBP), CH (CHF), SE (SEK), NO (NOK), DK (DKK), TR (TRY), RU (RUB) |
+| Europe | EU (EUR), GB (GBP), CH (CHF), SE (SEK), NO (NOK), DK (DKK), CZ (CZK), PL (PLN), HU (HUF), TR (TRY), RU (RUB) |
 | Americas and Oceania | US (USD), CA (CAD), MX (MXN), BR (BRL), AU (AUD), NZ (NZD) |
 | Africa | ZA (ZAR) |
 
