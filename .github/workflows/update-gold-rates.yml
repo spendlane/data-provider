@@ -51,12 +51,17 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data
+          # data/ doesn't exist until a feed succeeds at least once, and `git add` fails on a missing path.
+          if [ -d data ]; then
+            git add -A data
+          fi
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
             git commit -m "Update rates $(date -u +'%Y-%m-%d %H:%M') UTC"
-            git push
+            # Pick up any commit pushed to main while this job was running.
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
           fi
 
       - name: Prepare Pages site
@@ -78,7 +83,8 @@ jobs:
         uses: actions/deploy-pages@v5
 
       - name: Report failed feeds
-        if: steps.fx.outcome == 'failure' || steps.gold.outcome == 'failure'
+        # always() so a failed feed is still reported when a later step (commit or deploy) also failed.
+        if: always() && (steps.fx.outcome == 'failure' || steps.gold.outcome == 'failure')
         run: |
           echo "FX: ${{ steps.fx.outcome }} | Gold: ${{ steps.gold.outcome }}"
           echo "A failed feed kept its last good file. Check the step logs above."
