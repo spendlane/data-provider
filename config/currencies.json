@@ -1,7 +1,13 @@
 {
-  "_note": "Exchange-rate feed settings. 'base' is the currency users think in. 'currencies' are published in data/fx.json. ECB doesn't publish Gulf currencies, so they come from fixed USD pegs below (also used by the gold feed). Cross rates for pegged currencies go through USD.",
+  "_note": "Exchange-rate feed settings. 'base' is the currency users think in. 'currencies' are published in data/fx.json and match the currencies the SpendLane app seeds (plus OMR). Rates come from Frankfurter v2, which blends central bank reference rates. The fixed USD pegs below override fetched rates for the Gulf currencies (also used by the gold feed). Cross rates for pegged currencies go through USD.",
   "base": "INR",
-  "currencies": ["USD", "EUR", "GBP", "AED", "SAR", "QAR", "OMR", "BHD", "SGD", "MYR", "THB", "HKD", "CNY", "JPY", "AUD", "NZD", "CAD", "CHF"],
+  "currencies": [
+    "USD", "EUR", "GBP", "JPY", "CNY", "AUD", "CAD", "CHF", "SGD", "HKD", "NZD",
+    "AED", "SAR", "QAR", "KWD", "BHD", "OMR",
+    "THB", "MYR", "IDR", "PHP", "VND", "KRW",
+    "ZAR", "BRL", "MXN", "TRY", "RUB", "SEK", "NOK", "DKK",
+    "LKR", "BDT", "NPR", "PKR"
+  ],
   "pegs_per_usd": {
     "AED": 3.6725,
     "SAR": 3.75,

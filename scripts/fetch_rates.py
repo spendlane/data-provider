@@ -116,7 +116,7 @@ def main() -> None:
         if change > MAX_JUMP_VS_PREVIOUS:
             fail(f"Gold moved {change:.1%} since last run; skipping as a likely bad read")
 
-    fx, fx_date = fetch_usd_rates({c["currency"] for c in countries_cfg.values()})
+    fx, fx_date, _ = fetch_usd_rates({c["currency"] for c in countries_cfg.values()})
 
     countries = {code: build_country(cfg, usd_per_gram, fx) for code, cfg in sorted(countries_cfg.items())}
 

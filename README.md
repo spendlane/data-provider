@@ -2,8 +2,8 @@
 
 A free gold price and exchange-rate feed for an offline-first app, focused on India. A GitHub Actions job runs every 6 hours. It publishes two files to GitHub Pages:
 
-- `data/fx.json`: exchange rates against INR for 18 currencies (European Central Bank reference rates via Frankfurter, plus fixed USD pegs for Gulf currencies).
-- `data/rates.json`: gold prices. The job fetches the gold spot price from MetalCharts, computes **derived** local prices (per gram, per 10 grams, per pavan, per tola; by karat; with and without GST), and writes them here.
+- `data/fx.json`: exchange rates against INR for 35 currencies, every currency the SpendLane app supports plus OMR (central bank reference rates via Frankfurter, plus fixed USD pegs for Gulf currencies).
+- `data/rates.json`: gold prices for 36 countries, one per supported currency. The job fetches the gold spot price from MetalCharts, computes **derived** local prices (per gram, per 10 grams, per pavan, per tola; by karat; with and without GST), and writes them here.
 
 The app downloads both files when online and stores them in SQLite. The two feeds are independent: if one source fails, the other still publishes, and the failed one keeps its last good file.
 
@@ -17,8 +17,8 @@ The public file contains only derived values, never the raw spot quote.
 4. Go to **Settings › Actions › General › Workflow permissions** and select **Read and write permissions**.
 5. Go to **Settings › Pages** and set **Source** to **GitHub Actions**.
 6. Open the **Actions** tab, pick **Update gold and FX rates**, and click **Run workflow**. When it finishes, the run summary shows your Pages URL.
-7. Check the India figures in `config/countries.json` (see India pricing below) and set real values for any other country you support.
-8. Edit the currency list in `config/currencies.json` to match what your users hold.
+7. Check the India figures in `config/countries.json` (see India pricing below). Every other country ships with `0.0` placeholders for duty, premium and sales tax; set real values before showing that country's prices.
+8. Keep the currency list in `config/currencies.json` in step with the currencies the app seeds, and add a matching country to `config/countries.json` for each new currency.
 
 ## Files
 
@@ -38,15 +38,15 @@ https://<your-user>.github.io/gold-rates-feed/data/fx.json
 https://<your-user>.github.io/gold-rates-feed/data/rates.json
 ```
 
-Daily snapshots for trend charts at the same base URL: `data/fx-daily/YYYY-MM-DD.json` (named by the ECB rate date) and `data/daily/YYYY-MM-DD.json` (gold).
+Daily snapshots for trend charts at the same base URL: `data/fx-daily/YYYY-MM-DD.json` (named by the latest rate date) and `data/daily/YYYY-MM-DD.json` (gold).
 
-GitHub Pages has a soft bandwidth limit of 100 GB a month. At roughly 4 KB per download, that is about 25 million downloads a month. GitHub's terms say Pages isn't meant as free hosting for a commercial business, so move the file to a CDN or object storage if the app grows or earns significant revenue. Only the URL in the app changes.
+GitHub Pages has a soft bandwidth limit of 100 GB a month. `rates.json` is about 33 KB and `fx.json` about 6 KB, so a full refresh is roughly 40 KB: about 2.5 million refreshes a month. GitHub's terms say Pages isn't meant as free hosting for a commercial business, so move the file to a CDN or object storage if the app grows or earns significant revenue. Only the URL in the app changes.
 
 ## Exchange rates (fx.json)
 
-Rates come from European Central Bank reference rates through Frankfurter, a free open-source API with no key and no published limits. The ECB publishes once each working day, around 16:00 CET, and not on weekends or ECB holidays, so `fx_date` can be a few days old on a Monday morning. These are mid-market reference rates, not bank, card or remittance rates.
+Rates come from Frankfurter's v2 API, a free open-source service with no key and no published limits. It blends the daily reference rates of about 100 central banks, so it covers currencies the European Central Bank doesn't publish (KWD, VND, RUB, LKR, BDT, NPR, PKR). Central banks publish on working days only and some publish a day later than others, so each currency carries its own `rate_date`; `fx_date` is the newest of them and can be a few days old on a Monday morning. These are mid-market reference rates, not bank, card or remittance rates.
 
-The ECB doesn't publish Gulf currencies. AED, SAR, QAR, OMR and BHD use their fixed USD pegs from `config/currencies.json`, crossed through the ECB's USD rate. KWD isn't pegged and isn't in the ECB set, so it isn't included.
+AED, SAR, QAR, OMR and BHD use their fixed USD pegs from `config/currencies.json`, crossed through the fetched INR rate; their `rate_date` is `null`. KWD is pegged to an undisclosed basket, so it floats and comes from Frankfurter. NPR is pegged to INR at 1.6, which Frankfurter already applies.
 
 ```json
 {
@@ -55,17 +55,18 @@ The ECB doesn't publish Gulf currencies. AED, SAR, QAR, OMR and BHD use their fi
   "fx_date": "2026-10-01",
   "base": "INR",
   "notice": "Daily reference rates for estimates only. Not live trading, bank or card rates.",
-  "source": { "text": "European Central Bank reference rates via Frankfurter", "url": "https://frankfurter.dev" },
+  "source": { "text": "Central bank reference rates via Frankfurter", "url": "https://frankfurter.dev" },
   "rates": {
-    "USD": { "base_per_unit": 88.0, "unit_per_base": 0.01136364, "pegged_to_usd": false },
-    "AED": { "base_per_unit": 23.9619, "unit_per_base": 0.04173295, "pegged_to_usd": true }
+    "USD": { "base_per_unit": 88.0, "unit_per_base": 0.01136364, "pegged_to_usd": false, "rate_date": "2026-10-01" },
+    "AED": { "base_per_unit": 23.9619, "unit_per_base": 0.04173295, "pegged_to_usd": true, "rate_date": null },
+    "VND": { "base_per_unit": 0.00339, "unit_per_base": 294.98525074, "pegged_to_usd": false, "rate_date": "2026-09-30" }
   }
 }
 ```
 
-`base_per_unit` reads as "1 USD = ₹88.00". Numbers above come from a test run with made-up inputs.
+`base_per_unit` reads as "1 USD = ₹88.00". It has 4 decimal places, or 6 significant figures when below 1 (VND, IDR, KRW, JPY). Numbers above come from a test run with made-up inputs.
 
-Safety checks: a currency the ECB doesn't publish and that has no peg stops the run, and a move of more than 25% in any floating currency since the last run is rejected as a likely bad read.
+Safety checks: a currency Frankfurter doesn't publish and that has no peg stops the run, and a move of more than 25% in any floating currency since the last run is rejected as a likely bad read.
 
 ## India pricing (INR)
 
@@ -85,6 +86,23 @@ Which price to show:
 - **Net worth value:** use `ex_tax` 22K or 24K per gram × the user's weight. Resale value doesn't include GST.
 - **"Today's gold rate" display:** most Indian rate boards quote per 10 grams, often without GST. Show `ex_tax` with a small "+3% GST" note, or show both.
 - Always label values as **estimated market value**. Jeweler rates vary by city and shop, and making charges are never recoverable.
+
+## Supported countries
+
+`config/countries.json` has one entry per currency the app supports. `EU` covers every eurozone country, so the app should map a eurozone device region (DE, FR, IT, …) to `EU`.
+
+| Region | Countries (currency) |
+| --- | --- |
+| South Asia | IN (INR), PK (PKR), BD (BDT), LK (LKR), NP (NPR) |
+| Gulf | AE (AED), SA (SAR), QA (QAR), KW (KWD), BH (BHD), OM (OMR) |
+| East and Southeast Asia | SG (SGD), MY (MYR), TH (THB), ID (IDR), PH (PHP), VN (VND), KR (KRW), JP (JPY), CN (CNY), HK (HKD) |
+| Europe | EU (EUR), GB (GBP), CH (CHF), SE (SEK), NO (NOK), DK (DKK), TR (TRY), RU (RUB) |
+| Americas and Oceania | US (USD), CA (CAD), MX (MXN), BR (BRL), AU (AUD), NZ (NZD) |
+| Africa | ZA (ZAR) |
+
+Only India has real duty and tax values. All other countries use `0.0` placeholders, so their prices are the plain international price converted to local currency.
+
+Display units follow local custom: tola (PK, NP, AE), vori/bhori (BD, the same weight as a tola), pavan (IN, LK), tael (HK 37.429 g, VN luong 37.5 g), chi (VN, 3.75 g), don (KR, 3.75 g) and baht weight (TH, 15.244 g). Most others use grams and troy ounces.
 
 ## Gold feed format (rates.json, schema 2)
 
@@ -142,7 +160,7 @@ Purity factors: 24K = 1.0, 22K = 0.916, 18K = 0.75, 14K = 0.585.
 
 ```sql
 CREATE TABLE IF NOT EXISTS fx_rates (
-  fx_date        TEXT NOT NULL,   -- ECB rate date, e.g. '2026-10-01'
+  fx_date        TEXT NOT NULL,   -- feed's fx_date, e.g. '2026-10-01'
   currency       TEXT NOT NULL,   -- 'USD', 'AED', ...
   base           TEXT NOT NULL,   -- 'INR'
   base_per_unit  REAL NOT NULL,   -- 1 unit = this many INR
@@ -178,7 +196,7 @@ Refresh logic in the app:
 4. Value each gold holding as `weight_grams × price_per_gram` for its karat, and add the total to net worth.
 5. Convert each foreign-currency account to INR as `balance × base_per_unit` using the latest `fx_rates` row for its currency. Store balances in their own currency and convert only for display and totals.
 6. For unit displays (10 g, pavan, tola), multiply the per-gram price by the gram values in the feed's `units`.
-7. Show "Last updated" plus the MetalCharts attribution link next to gold values, and "Rates: ECB reference, <fx_date>" next to converted amounts. Show a gentle "rates may be out of date" note if gold is older than 48 hours or `fx_date` is older than 5 days.
+7. Show "Last updated" plus the MetalCharts attribution link next to gold values, and "Rates: central bank reference, <fx_date>" next to converted amounts. Show a gentle "rates may be out of date" note if gold is older than 48 hours or `fx_date` is older than 5 days.
 
 ## Notes
 

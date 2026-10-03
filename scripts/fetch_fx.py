@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Publish exchange rates against the base currency (INR by default) as data/fx.json.
 
-Source: European Central Bank reference rates via Frankfurter (free, no key, no published limits),
-plus fixed USD pegs for Gulf currencies the ECB doesn't publish.
+Source: central bank reference rates blended by Frankfurter v2 (free, no key, no published limits),
+plus fixed USD pegs for Gulf currencies from config/currencies.json.
 Runs independently of the gold script, so an FX update still ships if MetalCharts is down.
 """
 from common import (CONFIG_DIR, DATA_DIR, FX_SOURCE, fail, fetch_usd_rates, iso, load_json,
@@ -12,6 +12,11 @@ SCHEMA_VERSION = 1
 LATEST_FILE = DATA_DIR / "fx.json"
 DAILY_DIR = DATA_DIR / "fx-daily"
 MAX_JUMP_VS_PREVIOUS = 0.25  # reject a >25% move in any floating currency as a likely bad read
+
+
+def round_rate(value: float) -> float:
+    """4 decimal places, or 6 significant figures for small rates (1 VND is ~0.0037 INR)."""
+    return round(value, 4) if value >= 1 else float(f"{value:.6g}")
 
 
 def check_jumps(new_rates: dict, pegs: dict) -> None:
@@ -39,16 +44,18 @@ def main() -> None:
     codes = [c for c in cfg["currencies"] if c != base]
     pegs = load_pegs()
 
-    usd_rates, fx_date = fetch_usd_rates(set(codes) | {base})
+    usd_rates, fx_date, rate_dates = fetch_usd_rates(set(codes) | {base})
     base_per_usd = usd_rates[base]
 
     rates = {}
     for code in codes:
         base_per_unit = base_per_usd / usd_rates[code]  # e.g. INR per 1 AED, crossed through USD
         rates[code] = {
-            "base_per_unit": round(base_per_unit, 4),     # 1 unit of `code` = this many INR
+            "base_per_unit": round_rate(base_per_unit),   # 1 unit of `code` = this many INR
             "unit_per_base": round(1 / base_per_unit, 8),  # 1 INR = this many units of `code`
             "pegged_to_usd": code in pegs,
+            # Pegs are fixed; for floating currencies this is the source's own publication date.
+            "rate_date": None if code in pegs else rate_dates.get(code, fx_date),
         }
 
     check_jumps(rates, pegs)
@@ -65,7 +72,7 @@ def main() -> None:
     }
     write_json(LATEST_FILE, payload)
     write_json(DAILY_DIR / f"{fx_date or now.date().isoformat()}.json", payload)
-    print(f"Wrote {LATEST_FILE.name}: {len(rates)} currencies vs {base}, ECB date {fx_date}")
+    print(f"Wrote {LATEST_FILE.name}: {len(rates)} currencies vs {base}, latest rate date {fx_date}")
 
 
 if __name__ == "__main__":

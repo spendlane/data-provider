@@ -1,5 +1,5 @@
 {
-  "_note": "All adjustments are fractions (0.06 = 6%). import_duty and market_premium are added to the international price; sales_tax (GST/VAT) is shown separately as an 'incl_tax' price. Values marked 0.0 are placeholders. The India figures (6% customs duty incl. AIDC, 3% GST) reflect rules as of mid-2026: VERIFY before launch and after every Union Budget. USD pegs for Gulf currencies live in config/currencies.json. 'units' maps a display unit to its weight in grams.",
+  "_note": "All adjustments are fractions (0.06 = 6%). import_duty and market_premium are added to the international price; sales_tax (GST/VAT) is shown separately as an 'incl_tax' price. Values marked 0.0 are placeholders. The India figures (6% customs duty incl. AIDC, 3% GST) reflect rules as of mid-2026: VERIFY before launch and after every Union Budget. USD pegs for Gulf currencies live in config/currencies.json. 'units' maps a display unit to its weight in grams. One entry per SpendLane currency; 'EU' covers every eurozone country (map the device region to EU in the app).",
   "countries": {
     "IN": {
       "currency": "INR",
@@ -102,6 +102,261 @@
       "units": {
         "gram": 1,
         "ounce": 31.1034768
+      }
+    },
+    "EU": {
+      "currency": "EUR",
+      "import_duty": 0.0,
+      "market_premium": 0.0,
+      "sales_tax": 0.0,
+      "units": {
+        "gram": 1,
+        "ounce": 31.1034768
+      }
+    },
+    "JP": {
+      "currency": "JPY",
+      "import_duty": 0.0,
+      "market_premium": 0.0,
+      "sales_tax": 0.0,
+      "units": {
+        "gram": 1
+      }
+    },
+    "CN": {
+      "currency": "CNY",
+      "import_duty": 0.0,
+      "market_premium": 0.0,
+      "sales_tax": 0.0,
+      "units": {
+        "gram": 1,
+        "ounce": 31.1034768
+      }
+    },
+    "AU": {
+      "currency": "AUD",
+      "import_duty": 0.0,
+      "market_premium": 0.0,
+      "sales_tax": 0.0,
+      "units": {
+        "gram": 1,
+        "ounce": 31.1034768
+      }
+    },
+    "CA": {
+      "currency": "CAD",
+      "import_duty": 0.0,
+      "market_premium": 0.0,
+      "sales_tax": 0.0,
+      "units": {
+        "gram": 1,
+        "ounce": 31.1034768
+      }
+    },
+    "CH": {
+      "currency": "CHF",
+      "import_duty": 0.0,
+      "market_premium": 0.0,
+      "sales_tax": 0.0,
+      "units": {
+        "gram": 1,
+        "ounce": 31.1034768
+      }
+    },
+    "HK": {
+      "currency": "HKD",
+      "import_duty": 0.0,
+      "market_premium": 0.0,
+      "sales_tax": 0.0,
+      "units": {
+        "gram": 1,
+        "tael": 37.429,
+        "ounce": 31.1034768
+      }
+    },
+    "NZ": {
+      "currency": "NZD",
+      "import_duty": 0.0,
+      "market_premium": 0.0,
+      "sales_tax": 0.0,
+      "units": {
+        "gram": 1,
+        "ounce": 31.1034768
+      }
+    },
+    "KW": {
+      "currency": "KWD",
+      "import_duty": 0.0,
+      "market_premium": 0.0,
+      "sales_tax": 0.0,
+      "units": {
+        "gram": 1,
+        "ounce": 31.1034768
+      }
+    },
+    "TH": {
+      "currency": "THB",
+      "import_duty": 0.0,
+      "market_premium": 0.0,
+      "sales_tax": 0.0,
+      "units": {
+        "gram": 1,
+        "baht weight": 15.244
+      }
+    },
+    "ID": {
+      "currency": "IDR",
+      "import_duty": 0.0,
+      "market_premium": 0.0,
+      "sales_tax": 0.0,
+      "units": {
+        "gram": 1
+      }
+    },
+    "PH": {
+      "currency": "PHP",
+      "import_duty": 0.0,
+      "market_premium": 0.0,
+      "sales_tax": 0.0,
+      "units": {
+        "gram": 1
+      }
+    },
+    "VN": {
+      "currency": "VND",
+      "import_duty": 0.0,
+      "market_premium": 0.0,
+      "sales_tax": 0.0,
+      "units": {
+        "gram": 1,
+        "chi": 3.75,
+        "luong (tael)": 37.5
+      }
+    },
+    "KR": {
+      "currency": "KRW",
+      "import_duty": 0.0,
+      "market_premium": 0.0,
+      "sales_tax": 0.0,
+      "units": {
+        "gram": 1,
+        "don": 3.75
+      }
+    },
+    "ZA": {
+      "currency": "ZAR",
+      "import_duty": 0.0,
+      "market_premium": 0.0,
+      "sales_tax": 0.0,
+      "units": {
+        "gram": 1,
+        "ounce": 31.1034768
+      }
+    },
+    "BR": {
+      "currency": "BRL",
+      "import_duty": 0.0,
+      "market_premium": 0.0,
+      "sales_tax": 0.0,
+      "units": {
+        "gram": 1
+      }
+    },
+    "MX": {
+      "currency": "MXN",
+      "import_duty": 0.0,
+      "market_premium": 0.0,
+      "sales_tax": 0.0,
+      "units": {
+        "gram": 1,
+        "ounce": 31.1034768
+      }
+    },
+    "TR": {
+      "currency": "TRY",
+      "import_duty": 0.0,
+      "market_premium": 0.0,
+      "sales_tax": 0.0,
+      "units": {
+        "gram": 1,
+        "ounce": 31.1034768
+      }
+    },
+    "RU": {
+      "currency": "RUB",
+      "import_duty": 0.0,
+      "market_premium": 0.0,
+      "sales_tax": 0.0,
+      "units": {
+        "gram": 1
+      }
+    },
+    "SE": {
+      "currency": "SEK",
+      "import_duty": 0.0,
+      "market_premium": 0.0,
+      "sales_tax": 0.0,
+      "units": {
+        "gram": 1
+      }
+    },
+    "NO": {
+      "currency": "NOK",
+      "import_duty": 0.0,
+      "market_premium": 0.0,
+      "sales_tax": 0.0,
+      "units": {
+        "gram": 1
+      }
+    },
+    "DK": {
+      "currency": "DKK",
+      "import_duty": 0.0,
+      "market_premium": 0.0,
+      "sales_tax": 0.0,
+      "units": {
+        "gram": 1
+      }
+    },
+    "LK": {
+      "currency": "LKR",
+      "import_duty": 0.0,
+      "market_premium": 0.0,
+      "sales_tax": 0.0,
+      "units": {
+        "gram": 1,
+        "8 grams (pavan)": 8
+      }
+    },
+    "BD": {
+      "currency": "BDT",
+      "import_duty": 0.0,
+      "market_premium": 0.0,
+      "sales_tax": 0.0,
+      "units": {
+        "gram": 1,
+        "vori (bhori)": 11.6638038
+      }
+    },
+    "NP": {
+      "currency": "NPR",
+      "import_duty": 0.0,
+      "market_premium": 0.0,
+      "sales_tax": 0.0,
+      "units": {
+        "gram": 1,
+        "tola": 11.6638038
+      }
+    },
+    "PK": {
+      "currency": "PKR",
+      "import_duty": 0.0,
+      "market_premium": 0.0,
+      "sales_tax": 0.0,
+      "units": {
+        "gram": 1,
+        "10 grams": 10,
+        "tola": 11.6638038
       }
     }
   }
