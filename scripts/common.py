@@ -1,6 +1,8 @@
 """Shared helpers for the feed scripts (standard library only)."""
 import json
 import sys
+import time
+import urllib.error
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
@@ -9,6 +11,9 @@ ROOT = Path(__file__).resolve().parent.parent
 CONFIG_DIR = ROOT / "config"
 DATA_DIR = ROOT / "data"
 HTTP_TIMEOUT = 20
+# Waits before the 2nd and 3rd attempt. Covers short upstream blips such as Cloudflare's 522
+# (origin timed out), which failed the FX feed on 2026-10-06, without stretching a run past a minute.
+RETRY_DELAYS = (5, 15)
 
 # Frankfurter v2 blends daily reference rates from ~100 central banks, so it covers currencies the
 # ECB doesn't publish (KWD, VND, RUB, LKR, BDT, NPR, PKR). Each record carries its own rate date.
@@ -21,13 +26,28 @@ def fail(message: str) -> None:
     sys.exit(1)
 
 
+def _is_transient(exc: Exception) -> bool:
+    """Server-side (5xx) or network errors are worth retrying; 4xx (bad key, bad request) are not."""
+    if isinstance(exc, urllib.error.HTTPError):
+        return exc.code >= 500
+    return isinstance(exc, (urllib.error.URLError, TimeoutError))
+
+
 def get_json(url: str, headers: dict | None = None) -> tuple[dict | list, dict]:
-    """Return (parsed JSON body, response headers)."""
+    """Return (parsed JSON body, response headers), retrying transient failures twice."""
     request = urllib.request.Request(
         url, headers={"User-Agent": "gold-rates-feed/1.0", **(headers or {})}
     )
-    with urllib.request.urlopen(request, timeout=HTTP_TIMEOUT) as response:
-        return json.load(response), dict(response.headers)
+    for attempt, delay in enumerate((*RETRY_DELAYS, None), start=1):
+        try:
+            with urllib.request.urlopen(request, timeout=HTTP_TIMEOUT) as response:
+                return json.load(response), dict(response.headers)
+        except (urllib.error.URLError, TimeoutError) as exc:
+            if delay is None or not _is_transient(exc):
+                raise
+            print(f"Attempt {attempt} failed ({exc}); retrying in {delay}s", file=sys.stderr)
+            time.sleep(delay)
+    raise AssertionError("unreachable")
 
 
 def load_json(path: Path):
