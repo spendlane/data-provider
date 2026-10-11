@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-10-11T12:45:56Z",
+  "updated_at": "2026-10-11T21:56:10Z",
   "fx_date": "2026-10-11",
   "base": "INR",
   "notice": "Daily reference rates for estimates only. Not live trading, bank or card rates.",
@@ -16,14 +16,14 @@
       "rate_date": "2026-10-11"
     },
     "EUR": {
-      "base_per_unit": 108.4079,
-      "unit_per_base": 0.00922442,
+      "base_per_unit": 108.4116,
+      "unit_per_base": 0.00922411,
       "pegged_to_usd": false,
       "rate_date": "2026-10-11"
     },
     "GBP": {
-      "base_per_unit": 127.9065,
-      "unit_per_base": 0.00781821,
+      "base_per_unit": 127.9082,
+      "unit_per_base": 0.00781811,
       "pegged_to_usd": false,
       "rate_date": "2026-10-11"
     },
@@ -34,8 +34,8 @@
       "rate_date": "2026-10-11"
     },
     "CNY": {
-      "base_per_unit": 14.4424,
-      "unit_per_base": 0.06924056,
+      "base_per_unit": 14.4426,
+      "unit_per_base": 0.06923952,
       "pegged_to_usd": false,
       "rate_date": "2026-10-11"
     },
