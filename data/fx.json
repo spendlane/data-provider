@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "updated_at": "2026-10-18T15:50:07Z",
-  "fx_date": "2026-10-18",
+  "updated_at": "2026-10-18T20:39:30Z",
+  "fx_date": "2026-10-19",
   "base": "INR",
   "notice": "Daily reference rates for estimates only. Not live trading, bank or card rates.",
   "source": {
@@ -13,37 +13,37 @@
       "base_per_unit": 94.93,
       "unit_per_base": 0.01053408,
       "pegged_to_usd": false,
-      "rate_date": "2026-10-18"
+      "rate_date": "2026-10-19"
     },
     "EUR": {
-      "base_per_unit": 106.6138,
-      "unit_per_base": 0.00937965,
+      "base_per_unit": 106.6198,
+      "unit_per_base": 0.00937912,
       "pegged_to_usd": false,
-      "rate_date": "2026-10-18"
+      "rate_date": "2026-10-19"
     },
     "GBP": {
-      "base_per_unit": 126.23,
-      "unit_per_base": 0.00792205,
+      "base_per_unit": 126.2451,
+      "unit_per_base": 0.0079211,
       "pegged_to_usd": false,
-      "rate_date": "2026-10-18"
+      "rate_date": "2026-10-19"
     },
     "JPY": {
       "base_per_unit": 0.600557,
       "unit_per_base": 1.66512167,
       "pegged_to_usd": false,
-      "rate_date": "2026-10-18"
+      "rate_date": "2026-10-19"
     },
     "CNY": {
-      "base_per_unit": 14.2041,
-      "unit_per_base": 0.0704024,
+      "base_per_unit": 14.2045,
+      "unit_per_base": 0.07040029,
       "pegged_to_usd": false,
-      "rate_date": "2026-10-18"
+      "rate_date": "2026-10-19"
     },
     "AUD": {
       "base_per_unit": 65.919,
       "unit_per_base": 0.01517013,
       "pegged_to_usd": false,
-      "rate_date": "2026-10-18"
+      "rate_date": "2026-10-19"
     },
     "CAD": {
       "base_per_unit": 66.9606,
@@ -70,10 +70,10 @@
       "rate_date": "2026-10-18"
     },
     "NZD": {
-      "base_per_unit": 53.5269,
-      "unit_per_base": 0.01868219,
+      "base_per_unit": 53.542,
+      "unit_per_base": 0.01867692,
       "pegged_to_usd": false,
-      "rate_date": "2026-10-18"
+      "rate_date": "2026-10-19"
     },
     "AED": {
       "base_per_unit": 25.8489,
