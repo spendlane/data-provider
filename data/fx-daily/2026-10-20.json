@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-10-20T04:46:32Z",
+  "updated_at": "2026-10-20T11:32:29Z",
   "fx_date": "2026-10-20",
   "base": "INR",
   "notice": "Daily reference rates for estimates only. Not live trading, bank or card rates.",
@@ -16,62 +16,62 @@
       "rate_date": "2026-10-20"
     },
     "EUR": {
-      "base_per_unit": 106.5642,
-      "unit_per_base": 0.00938402,
+      "base_per_unit": 106.4721,
+      "unit_per_base": 0.00939213,
       "pegged_to_usd": false,
       "rate_date": "2026-10-20"
     },
     "GBP": {
-      "base_per_unit": 126.4382,
-      "unit_per_base": 0.007909,
+      "base_per_unit": 126.4719,
+      "unit_per_base": 0.0079069,
       "pegged_to_usd": false,
       "rate_date": "2026-10-20"
     },
     "JPY": {
-      "base_per_unit": 0.59957,
-      "unit_per_base": 1.66786166,
+      "base_per_unit": 0.599116,
+      "unit_per_base": 1.66912695,
       "pegged_to_usd": false,
       "rate_date": "2026-10-20"
     },
     "CNY": {
-      "base_per_unit": 14.2019,
-      "unit_per_base": 0.07041333,
+      "base_per_unit": 14.2061,
+      "unit_per_base": 0.07039224,
       "pegged_to_usd": false,
       "rate_date": "2026-10-20"
     },
     "AUD": {
-      "base_per_unit": 66.063,
-      "unit_per_base": 0.01513707,
+      "base_per_unit": 66.1875,
+      "unit_per_base": 0.0151086,
       "pegged_to_usd": false,
       "rate_date": "2026-10-20"
     },
     "CAD": {
-      "base_per_unit": 67.2005,
-      "unit_per_base": 0.01488085,
+      "base_per_unit": 67.3484,
+      "unit_per_base": 0.01484817,
       "pegged_to_usd": false,
       "rate_date": "2026-10-20"
     },
     "CHF": {
-      "base_per_unit": 114.9715,
-      "unit_per_base": 0.00869781,
+      "base_per_unit": 114.9659,
+      "unit_per_base": 0.00869823,
       "pegged_to_usd": false,
       "rate_date": "2026-10-20"
     },
     "SGD": {
-      "base_per_unit": 74.1401,
-      "unit_per_base": 0.01348798,
+      "base_per_unit": 74.1517,
+      "unit_per_base": 0.01348587,
       "pegged_to_usd": false,
       "rate_date": "2026-10-20"
     },
     "HKD": {
-      "base_per_unit": 12.0743,
-      "unit_per_base": 0.08282054,
+      "base_per_unit": 12.0751,
+      "unit_per_base": 0.08281527,
       "pegged_to_usd": false,
       "rate_date": "2026-10-20"
     },
     "NZD": {
-      "base_per_unit": 53.7063,
-      "unit_per_base": 0.01861978,
+      "base_per_unit": 53.7764,
+      "unit_per_base": 0.01859553,
       "pegged_to_usd": false,
       "rate_date": "2026-10-20"
     },
@@ -94,10 +94,10 @@
       "rate_date": null
     },
     "KWD": {
-      "base_per_unit": 306.7171,
-      "unit_per_base": 0.00326033,
+      "base_per_unit": 306.8461,
+      "unit_per_base": 0.00325896,
       "pegged_to_usd": false,
-      "rate_date": "2026-10-19"
+      "rate_date": "2026-10-20"
     },
     "BHD": {
       "base_per_unit": 252.234,
@@ -112,128 +112,128 @@
       "rate_date": null
     },
     "THB": {
-      "base_per_unit": 2.83,
-      "unit_per_base": 0.35335302,
+      "base_per_unit": 2.8257,
+      "unit_per_base": 0.35389076,
       "pegged_to_usd": false,
       "rate_date": "2026-10-20"
     },
     "MYR": {
-      "base_per_unit": 23.2383,
-      "unit_per_base": 0.04303248,
+      "base_per_unit": 23.2348,
+      "unit_per_base": 0.0430388,
       "pegged_to_usd": false,
       "rate_date": "2026-10-20"
     },
     "IDR": {
-      "base_per_unit": 0.00526129,
-      "unit_per_base": 190.06748208,
+      "base_per_unit": 0.00525866,
+      "unit_per_base": 190.16237874,
       "pegged_to_usd": false,
       "rate_date": "2026-10-20"
     },
     "PHP": {
-      "base_per_unit": 1.5051,
-      "unit_per_base": 0.66439266,
+      "base_per_unit": 1.5049,
+      "unit_per_base": 0.66447701,
       "pegged_to_usd": false,
       "rate_date": "2026-10-20"
     },
     "VND": {
-      "base_per_unit": 0.00366928,
-      "unit_per_base": 272.53268663,
+      "base_per_unit": 0.00367113,
+      "unit_per_base": 272.39561367,
       "pegged_to_usd": false,
       "rate_date": "2026-10-20"
     },
     "KRW": {
-      "base_per_unit": 0.0711996,
-      "unit_per_base": 14.0450232,
+      "base_per_unit": 0.0712986,
+      "unit_per_base": 14.02551666,
       "pegged_to_usd": false,
       "rate_date": "2026-10-20"
     },
     "ZAR": {
-      "base_per_unit": 5.7739,
-      "unit_per_base": 0.17319275,
+      "base_per_unit": 5.7782,
+      "unit_per_base": 0.17306305,
       "pegged_to_usd": false,
       "rate_date": "2026-10-20"
     },
     "BRL": {
-      "base_per_unit": 18.7153,
-      "unit_per_base": 0.0534321,
+      "base_per_unit": 18.7642,
+      "unit_per_base": 0.05329291,
       "pegged_to_usd": false,
-      "rate_date": "2026-10-19"
+      "rate_date": "2026-10-20"
     },
     "MXN": {
-      "base_per_unit": 5.1382,
-      "unit_per_base": 0.19462041,
+      "base_per_unit": 5.137,
+      "unit_per_base": 0.1946647,
       "pegged_to_usd": false,
       "rate_date": "2026-10-20"
     },
     "TRY": {
-      "base_per_unit": 1.9145,
-      "unit_per_base": 0.52234289,
+      "base_per_unit": 1.9139,
+      "unit_per_base": 0.52250105,
       "pegged_to_usd": false,
       "rate_date": "2026-10-20"
     },
     "RUB": {
-      "base_per_unit": 1.1374,
-      "unit_per_base": 0.87916491,
+      "base_per_unit": 1.144,
+      "unit_per_base": 0.87410375,
       "pegged_to_usd": false,
       "rate_date": "2026-10-20"
     },
     "SEK": {
-      "base_per_unit": 9.573,
-      "unit_per_base": 0.10446014,
+      "base_per_unit": 9.5756,
+      "unit_per_base": 0.10443167,
       "pegged_to_usd": false,
       "rate_date": "2026-10-20"
     },
     "NOK": {
-      "base_per_unit": 10.059,
-      "unit_per_base": 0.09941375,
+      "base_per_unit": 10.0754,
+      "unit_per_base": 0.09925137,
       "pegged_to_usd": false,
       "rate_date": "2026-10-20"
     },
     "DKK": {
-      "base_per_unit": 14.2512,
-      "unit_per_base": 0.07016976,
+      "base_per_unit": 14.24,
+      "unit_per_base": 0.07022459,
       "pegged_to_usd": false,
       "rate_date": "2026-10-20"
     },
     "CZK": {
-      "base_per_unit": 4.3784,
-      "unit_per_base": 0.22839519,
+      "base_per_unit": 4.3731,
+      "unit_per_base": 0.22866934,
       "pegged_to_usd": false,
       "rate_date": "2026-10-20"
     },
     "PLN": {
-      "base_per_unit": 24.383,
-      "unit_per_base": 0.04101223,
+      "base_per_unit": 24.3485,
+      "unit_per_base": 0.04107022,
       "pegged_to_usd": false,
       "rate_date": "2026-10-20"
     },
     "HUF": {
-      "base_per_unit": 0.293377,
-      "unit_per_base": 3.40858288,
+      "base_per_unit": 0.29306,
+      "unit_per_base": 3.4122733,
       "pegged_to_usd": false,
       "rate_date": "2026-10-20"
     },
     "LKR": {
-      "base_per_unit": 0.28656,
-      "unit_per_base": 3.48966681,
+      "base_per_unit": 0.286491,
+      "unit_per_base": 3.49051033,
       "pegged_to_usd": false,
-      "rate_date": "2026-10-19"
+      "rate_date": "2026-10-20"
     },
     "BDT": {
-      "base_per_unit": 0.768122,
-      "unit_per_base": 1.30187685,
+      "base_per_unit": 0.76719,
+      "unit_per_base": 1.30345846,
       "pegged_to_usd": false,
-      "rate_date": "2026-10-19"
+      "rate_date": "2026-10-20"
     },
     "NPR": {
-      "base_per_unit": 0.624646,
-      "unit_per_base": 1.60090679,
+      "base_per_unit": 0.62444,
+      "unit_per_base": 1.60143399,
       "pegged_to_usd": false,
       "rate_date": "2026-10-20"
     },
     "PKR": {
-      "base_per_unit": 0.341938,
-      "unit_per_base": 2.92450443,
+      "base_per_unit": 0.342123,
+      "unit_per_base": 2.92292282,
       "pegged_to_usd": false,
       "rate_date": "2026-10-20"
     }
