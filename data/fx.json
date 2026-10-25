@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-10-25T16:13:54Z",
+  "updated_at": "2026-10-25T20:48:18Z",
   "fx_date": "2026-10-26",
   "base": "INR",
   "notice": "Daily reference rates for estimates only. Not live trading, bank or card rates.",
@@ -22,16 +22,16 @@
       "rate_date": "2026-10-26"
     },
     "GBP": {
-      "base_per_unit": 126.9397,
-      "unit_per_base": 0.00787776,
+      "base_per_unit": 126.938,
+      "unit_per_base": 0.00787786,
       "pegged_to_usd": false,
-      "rate_date": "2026-10-25"
+      "rate_date": "2026-10-26"
     },
     "JPY": {
-      "base_per_unit": 0.603501,
-      "unit_per_base": 1.65699821,
+      "base_per_unit": 0.603578,
+      "unit_per_base": 1.65678726,
       "pegged_to_usd": false,
-      "rate_date": "2026-10-25"
+      "rate_date": "2026-10-26"
     },
     "CNY": {
       "base_per_unit": 14.2231,
@@ -43,7 +43,7 @@
       "base_per_unit": 66.5333,
       "unit_per_base": 0.01503006,
       "pegged_to_usd": false,
-      "rate_date": "2026-10-25"
+      "rate_date": "2026-10-26"
     },
     "CAD": {
       "base_per_unit": 67.6924,
@@ -73,7 +73,7 @@
       "base_per_unit": 53.9582,
       "unit_per_base": 0.01853286,
       "pegged_to_usd": false,
-      "rate_date": "2026-10-25"
+      "rate_date": "2026-10-26"
     },
     "AED": {
       "base_per_unit": 25.8162,
