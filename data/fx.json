@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-01T13:17:51Z",
-  "fx_date": "2026-11-01",
+  "updated_at": "2026-11-01T21:59:27Z",
+  "fx_date": "2026-11-02",
   "base": "INR",
   "notice": "Daily reference rates for estimates only. Not live trading, bank or card rates.",
   "source": {
@@ -13,37 +13,37 @@
       "base_per_unit": 95.11,
       "unit_per_base": 0.01051414,
       "pegged_to_usd": false,
-      "rate_date": "2026-11-01"
+      "rate_date": "2026-11-02"
     },
     "EUR": {
-      "base_per_unit": 106.2955,
-      "unit_per_base": 0.00940774,
+      "base_per_unit": 106.2943,
+      "unit_per_base": 0.00940784,
       "pegged_to_usd": false,
-      "rate_date": "2026-11-01"
+      "rate_date": "2026-11-02"
     },
     "GBP": {
-      "base_per_unit": 127.1881,
-      "unit_per_base": 0.00786237,
+      "base_per_unit": 127.1915,
+      "unit_per_base": 0.00786216,
       "pegged_to_usd": false,
-      "rate_date": "2026-11-01"
+      "rate_date": "2026-11-02"
     },
     "JPY": {
       "base_per_unit": 0.60326,
       "unit_per_base": 1.65765955,
       "pegged_to_usd": false,
-      "rate_date": "2026-11-01"
+      "rate_date": "2026-11-02"
     },
     "CNY": {
-      "base_per_unit": 14.2879,
-      "unit_per_base": 0.06998949,
+      "base_per_unit": 14.2881,
+      "unit_per_base": 0.06998843,
       "pegged_to_usd": false,
-      "rate_date": "2026-11-01"
+      "rate_date": "2026-11-02"
     },
     "AUD": {
       "base_per_unit": 66.8424,
       "unit_per_base": 0.01496057,
       "pegged_to_usd": false,
-      "rate_date": "2026-11-01"
+      "rate_date": "2026-11-02"
     },
     "CAD": {
       "base_per_unit": 68.0232,
@@ -70,10 +70,10 @@
       "rate_date": "2026-11-01"
     },
     "NZD": {
-      "base_per_unit": 53.5801,
-      "unit_per_base": 0.01866365,
+      "base_per_unit": 53.5831,
+      "unit_per_base": 0.0186626,
       "pegged_to_usd": false,
-      "rate_date": "2026-11-01"
+      "rate_date": "2026-11-02"
     },
     "AED": {
       "base_per_unit": 25.8979,
