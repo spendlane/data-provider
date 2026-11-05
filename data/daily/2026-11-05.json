@@ -1,0 +1,790 @@
+{
+  "schema": 3,
+  "updated_at": "2026-11-05T06:41:18Z",
+  "fx_date": "2026-11-05",
+  "notice": "Estimated market values derived for in-app display only. Not a dealer quote.",
+  "attribution": {
+    "text": "Metal prices by MetalCharts",
+    "url": "https://metalcharts.org"
+  },
+  "countries": {
+    "AE": {
+      "currency": "AED",
+      "fx_per_usd": 3.6725,
+      "adjustments": {
+        "import_duty": 0.0,
+        "market_premium": 0.0,
+        "sales_tax": 0.0
+      },
+      "adjustments_verified": false,
+      "units": {
+        "gram": 1,
+        "tola": 11.6638038,
+        "ounce": 31.1034768
+      },
+      "price_per_gram": {
+        "24K": 486.8827,
+        "22K": 445.9845,
+        "18K": 365.162,
+        "14K": 284.8264
+      }
+    },
+    "AU": {
+      "currency": "AUD",
+      "fx_per_usd": 1.4299,
+      "adjustments": {
+        "import_duty": 0.0,
+        "market_premium": 0.0,
+        "sales_tax": 0.0
+      },
+      "adjustments_verified": false,
+      "units": {
+        "gram": 1,
+        "ounce": 31.1034768
+      },
+      "price_per_gram": {
+        "24K": 189.5694,
+        "22K": 173.6455,
+        "18K": 142.177,
+        "14K": 110.8981
+      }
+    },
+    "BD": {
+      "currency": "BDT",
+      "fx_per_usd": 124.4,
+      "adjustments": {
+        "import_duty": 0.0,
+        "market_premium": 0.0,
+        "sales_tax": 0.0
+      },
+      "adjustments_verified": false,
+      "units": {
+        "gram": 1,
+        "vori (bhori)": 11.6638038
+      },
+      "price_per_gram": {
+        "24K": 16492.363,
+        "22K": 15107.0046,
+        "18K": 12369.2723,
+        "14K": 9648.0324
+      }
+    },
+    "BH": {
+      "currency": "BHD",
+      "fx_per_usd": 0.376,
+      "adjustments": {
+        "import_duty": 0.0,
+        "market_premium": 0.0,
+        "sales_tax": 0.0
+      },
+      "adjustments_verified": false,
+      "units": {
+        "gram": 1,
+        "ounce": 31.1034768
+      },
+      "price_per_gram": {
+        "24K": 49.8483,
+        "22K": 45.661,
+        "18K": 37.3862,
+        "14K": 29.1613
+      }
+    },
+    "BR": {
+      "currency": "BRL",
+      "fx_per_usd": 5.4707,
+      "adjustments": {
+        "import_duty": 0.0,
+        "market_premium": 0.0,
+        "sales_tax": 0.0
+      },
+      "adjustments_verified": false,
+      "units": {
+        "gram": 1
+      },
+      "price_per_gram": {
+        "24K": 725.2795,
+        "22K": 664.356,
+        "18K": 543.9596,
+        "14K": 424.2885
+      }
+    },
+    "CA": {
+      "currency": "CAD",
+      "fx_per_usd": 1.3951,
+      "adjustments": {
+        "import_duty": 0.0,
+        "market_premium": 0.0,
+        "sales_tax": 0.0
+      },
+      "adjustments_verified": false,
+      "units": {
+        "gram": 1,
+        "ounce": 31.1034768
+      },
+      "price_per_gram": {
+        "24K": 184.9558,
+        "22K": 169.4195,
+        "18K": 138.7168,
+        "14K": 108.1991
+      }
+    },
+    "CH": {
+      "currency": "CHF",
+      "fx_per_usd": 0.81758,
+      "adjustments": {
+        "import_duty": 0.0,
+        "market_premium": 0.0,
+        "sales_tax": 0.0
+      },
+      "adjustments_verified": false,
+      "units": {
+        "gram": 1,
+        "ounce": 31.1034768
+      },
+      "price_per_gram": {
+        "24K": 108.3909,
+        "22K": 99.2861,
+        "18K": 81.2932,
+        "14K": 63.4087
+      }
+    },
+    "CN": {
+      "currency": "CNY",
+      "fx_per_usd": 6.6674,
+      "adjustments": {
+        "import_duty": 0.0,
+        "market_premium": 0.0,
+        "sales_tax": 0.0
+      },
+      "adjustments_verified": false,
+      "units": {
+        "gram": 1,
+        "ounce": 31.1034768
+      },
+      "price_per_gram": {
+        "24K": 883.9323,
+        "22K": 809.682,
+        "18K": 662.9492,
+        "14K": 517.1004
+      }
+    },
+    "CZ": {
+      "currency": "CZK",
+      "fx_per_usd": 21.656,
+      "adjustments": {
+        "import_duty": 0.0,
+        "market_premium": 0.0,
+        "sales_tax": 0.0
+      },
+      "adjustments_verified": false,
+      "units": {
+        "gram": 1,
+        "ounce": 31.1034768
+      },
+      "price_per_gram": {
+        "24K": 2871.05,
+        "22K": 2629.8818,
+        "18K": 2153.2875,
+        "14K": 1679.5642
+      }
+    },
+    "DK": {
+      "currency": "DKK",
+      "fx_per_usd": 6.6559,
+      "adjustments": {
+        "import_duty": 0.0,
+        "market_premium": 0.0,
+        "sales_tax": 0.0
+      },
+      "adjustments_verified": false,
+      "units": {
+        "gram": 1
+      },
+      "price_per_gram": {
+        "24K": 882.4077,
+        "22K": 808.2855,
+        "18K": 661.8058,
+        "14K": 516.2085
+      }
+    },
+    "EU": {
+      "currency": "EUR",
+      "fx_per_usd": 0.89036,
+      "adjustments": {
+        "import_duty": 0.0,
+        "market_premium": 0.0,
+        "sales_tax": 0.0
+      },
+      "adjustments_verified": false,
+      "units": {
+        "gram": 1,
+        "ounce": 31.1034768
+      },
+      "price_per_gram": {
+        "24K": 118.0397,
+        "22K": 108.1244,
+        "18K": 88.5298,
+        "14K": 69.0532
+      }
+    },
+    "GB": {
+      "currency": "GBP",
+      "fx_per_usd": 0.74277,
+      "adjustments": {
+        "import_duty": 0.0,
+        "market_premium": 0.0,
+        "sales_tax": 0.0
+      },
+      "adjustments_verified": false,
+      "units": {
+        "gram": 1,
+        "ounce": 31.1034768
+      },
+      "price_per_gram": {
+        "24K": 98.4729,
+        "22K": 90.2012,
+        "18K": 73.8547,
+        "14K": 57.6067
+      }
+    },
+    "HK": {
+      "currency": "HKD",
+      "fx_per_usd": 7.8517,
+      "adjustments": {
+        "import_duty": 0.0,
+        "market_premium": 0.0,
+        "sales_tax": 0.0
+      },
+      "adjustments_verified": false,
+      "units": {
+        "gram": 1,
+        "tael": 37.429,
+        "ounce": 31.1034768
+      },
+      "price_per_gram": {
+        "24K": 1040.9412,
+        "22K": 953.5022,
+        "18K": 780.7059,
+        "14K": 608.9506
+      }
+    },
+    "HU": {
+      "currency": "HUF",
+      "fx_per_usd": 323.84,
+      "adjustments": {
+        "import_duty": 0.0,
+        "market_premium": 0.0,
+        "sales_tax": 0.0
+      },
+      "adjustments_verified": false,
+      "units": {
+        "gram": 1,
+        "ounce": 31.1034768
+      },
+      "price_per_gram": {
+        "24K": 42933.174,
+        "22K": 39326.7874,
+        "18K": 32199.8805,
+        "14K": 25115.9068
+      }
+    },
+    "ID": {
+      "currency": "IDR",
+      "fx_per_usd": 18131.0,
+      "adjustments": {
+        "import_duty": 0.0,
+        "market_premium": 0.0,
+        "sales_tax": 0.0
+      },
+      "adjustments_verified": false,
+      "units": {
+        "gram": 1
+      },
+      "price_per_gram": {
+        "24K": 2403722.1419,
+        "22K": 2201809.4819,
+        "18K": 1802791.6064,
+        "14K": 1406177.453
+      }
+    },
+    "IN": {
+      "currency": "INR",
+      "fx_per_usd": 94.63,
+      "adjustments": {
+        "import_duty": 0.15,
+        "market_premium": 0.0,
+        "sales_tax": 0.03
+      },
+      "adjustments_verified": true,
+      "units": {
+        "gram": 1,
+        "8 grams (pavan)": 8,
+        "10 grams": 10,
+        "tola": 11.6638038
+      },
+      "price_per_gram": {
+        "24K": 14427.437,
+        "22K": 13215.5323,
+        "18K": 10820.5777,
+        "14K": 8440.0506
+      }
+    },
+    "JP": {
+      "currency": "JPY",
+      "fx_per_usd": 158.29,
+      "adjustments": {
+        "import_duty": 0.0,
+        "market_premium": 0.0,
+        "sales_tax": 0.0
+      },
+      "adjustments_verified": false,
+      "units": {
+        "gram": 1
+      },
+      "price_per_gram": {
+        "24K": 20985.3388,
+        "22K": 19222.5703,
+        "18K": 15739.0041,
+        "14K": 12276.4232
+      }
+    },
+    "KR": {
+      "currency": "KRW",
+      "fx_per_usd": 1341.5,
+      "adjustments": {
+        "import_duty": 0.0,
+        "market_premium": 0.0,
+        "sales_tax": 0.0
+      },
+      "adjustments_verified": false,
+      "units": {
+        "gram": 1,
+        "don": 3.75
+      },
+      "price_per_gram": {
+        "24K": 177849.7189,
+        "22K": 162910.3425,
+        "18K": 133387.2892,
+        "14K": 104042.0856
+      }
+    },
+    "KW": {
+      "currency": "KWD",
+      "fx_per_usd": 0.3093,
+      "adjustments": {
+        "import_duty": 0.0,
+        "market_premium": 0.0,
+        "sales_tax": 0.0
+      },
+      "adjustments_verified": false,
+      "units": {
+        "gram": 1,
+        "ounce": 31.1034768
+      },
+      "price_per_gram": {
+        "24K": 41.0055,
+        "22K": 37.5611,
+        "18K": 30.7541,
+        "14K": 23.9882
+      }
+    },
+    "LK": {
+      "currency": "LKR",
+      "fx_per_usd": 332.26,
+      "adjustments": {
+        "import_duty": 0.0,
+        "market_premium": 0.0,
+        "sales_tax": 0.0
+      },
+      "adjustments_verified": false,
+      "units": {
+        "gram": 1,
+        "8 grams (pavan)": 8
+      },
+      "price_per_gram": {
+        "24K": 44049.4578,
+        "22K": 40349.3033,
+        "18K": 33037.0933,
+        "14K": 25768.9328
+      }
+    },
+    "MX": {
+      "currency": "MXN",
+      "fx_per_usd": 18.659,
+      "adjustments": {
+        "import_duty": 0.0,
+        "market_premium": 0.0,
+        "sales_tax": 0.0
+      },
+      "adjustments_verified": false,
+      "units": {
+        "gram": 1,
+        "ounce": 31.1034768
+      },
+      "price_per_gram": {
+        "24K": 2473.7219,
+        "22K": 2265.9292,
+        "18K": 1855.2914,
+        "14K": 1447.1273
+      }
+    },
+    "MY": {
+      "currency": "MYR",
+      "fx_per_usd": 4.0659,
+      "adjustments": {
+        "import_duty": 0.0,
+        "market_premium": 0.0,
+        "sales_tax": 0.0
+      },
+      "adjustments_verified": false,
+      "units": {
+        "gram": 1,
+        "ounce": 31.1034768
+      },
+      "price_per_gram": {
+        "24K": 539.0378,
+        "22K": 493.7586,
+        "18K": 404.2783,
+        "14K": 315.3371
+      }
+    },
+    "NO": {
+      "currency": "NOK",
+      "fx_per_usd": 9.2515,
+      "adjustments": {
+        "import_duty": 0.0,
+        "market_premium": 0.0,
+        "sales_tax": 0.0
+      },
+      "adjustments_verified": false,
+      "units": {
+        "gram": 1
+      },
+      "price_per_gram": {
+        "24K": 1226.5201,
+        "22K": 1123.4924,
+        "18K": 919.8901,
+        "14K": 717.5142
+      }
+    },
+    "NP": {
+      "currency": "NPR",
+      "fx_per_usd": 151.57,
+      "adjustments": {
+        "import_duty": 0.0,
+        "market_premium": 0.0,
+        "sales_tax": 0.0
+      },
+      "adjustments_verified": false,
+      "units": {
+        "gram": 1,
+        "tola": 11.6638038
+      },
+      "price_per_gram": {
+        "24K": 20094.433,
+        "22K": 18406.5006,
+        "18K": 15070.8248,
+        "14K": 11755.2433
+      }
+    },
+    "NZ": {
+      "currency": "NZD",
+      "fx_per_usd": 1.7771,
+      "adjustments": {
+        "import_duty": 0.0,
+        "market_premium": 0.0,
+        "sales_tax": 0.0
+      },
+      "adjustments_verified": false,
+      "units": {
+        "gram": 1,
+        "ounce": 31.1034768
+      },
+      "price_per_gram": {
+        "24K": 235.5995,
+        "22K": 215.8091,
+        "18K": 176.6996,
+        "14K": 137.8257
+      }
+    },
+    "OM": {
+      "currency": "OMR",
+      "fx_per_usd": 0.3845,
+      "adjustments": {
+        "import_duty": 0.0,
+        "market_premium": 0.0,
+        "sales_tax": 0.0
+      },
+      "adjustments_verified": false,
+      "units": {
+        "gram": 1,
+        "ounce": 31.1034768
+      },
+      "price_per_gram": {
+        "24K": 50.9752,
+        "22K": 46.6933,
+        "18K": 38.2314,
+        "14K": 29.8205
+      }
+    },
+    "PH": {
+      "currency": "PHP",
+      "fx_per_usd": 63.452,
+      "adjustments": {
+        "import_duty": 0.0,
+        "market_premium": 0.0,
+        "sales_tax": 0.0
+      },
+      "adjustments_verified": false,
+      "units": {
+        "gram": 1
+      },
+      "price_per_gram": {
+        "24K": 8412.1658,
+        "22K": 7705.5438,
+        "18K": 6309.1243,
+        "14K": 4921.117
+      }
+    },
+    "PK": {
+      "currency": "PKR",
+      "fx_per_usd": 277.21,
+      "adjustments": {
+        "import_duty": 0.0,
+        "market_premium": 0.0,
+        "sales_tax": 0.0
+      },
+      "adjustments_verified": false,
+      "units": {
+        "gram": 1,
+        "10 grams": 10,
+        "tola": 11.6638038
+      },
+      "price_per_gram": {
+        "24K": 36751.1894,
+        "22K": 33664.0895,
+        "18K": 27563.392,
+        "14K": 21499.4458
+      }
+    },
+    "PL": {
+      "currency": "PLN",
+      "fx_per_usd": 3.9222,
+      "adjustments": {
+        "import_duty": 0.0,
+        "market_premium": 0.0,
+        "sales_tax": 0.0
+      },
+      "adjustments_verified": false,
+      "units": {
+        "gram": 1,
+        "ounce": 31.1034768
+      },
+      "price_per_gram": {
+        "24K": 519.9867,
+        "22K": 476.3078,
+        "18K": 389.99,
+        "14K": 304.1922
+      }
+    },
+    "QA": {
+      "currency": "QAR",
+      "fx_per_usd": 3.64,
+      "adjustments": {
+        "import_duty": 0.0,
+        "market_premium": 0.0,
+        "sales_tax": 0.0
+      },
+      "adjustments_verified": false,
+      "units": {
+        "gram": 1,
+        "ounce": 31.1034768
+      },
+      "price_per_gram": {
+        "24K": 482.574,
+        "22K": 442.0378,
+        "18K": 361.9305,
+        "14K": 282.3058
+      }
+    },
+    "RU": {
+      "currency": "RUB",
+      "fx_per_usd": 81.71,
+      "adjustments": {
+        "import_duty": 0.0,
+        "market_premium": 0.0,
+        "sales_tax": 0.0
+      },
+      "adjustments_verified": false,
+      "units": {
+        "gram": 1
+      },
+      "price_per_gram": {
+        "24K": 10832.725,
+        "22K": 9922.7761,
+        "18K": 8124.5437,
+        "14K": 6337.1441
+      }
+    },
+    "SA": {
+      "currency": "SAR",
+      "fx_per_usd": 3.75,
+      "adjustments": {
+        "import_duty": 0.0,
+        "market_premium": 0.0,
+        "sales_tax": 0.0
+      },
+      "adjustments_verified": false,
+      "units": {
+        "gram": 1,
+        "ounce": 31.1034768
+      },
+      "price_per_gram": {
+        "24K": 497.1572,
+        "22K": 455.396,
+        "18K": 372.8679,
+        "14K": 290.837
+      }
+    },
+    "SE": {
+      "currency": "SEK",
+      "fx_per_usd": 9.7599,
+      "adjustments": {
+        "import_duty": 0.0,
+        "market_premium": 0.0,
+        "sales_tax": 0.0
+      },
+      "adjustments_verified": false,
+      "units": {
+        "gram": 1
+      },
+      "price_per_gram": {
+        "24K": 1293.9213,
+        "22K": 1185.2319,
+        "18K": 970.441,
+        "14K": 756.944
+      }
+    },
+    "SG": {
+      "currency": "SGD",
+      "fx_per_usd": 1.2786,
+      "adjustments": {
+        "import_duty": 0.0,
+        "market_premium": 0.0,
+        "sales_tax": 0.0
+      },
+      "adjustments_verified": false,
+      "units": {
+        "gram": 1,
+        "ounce": 31.1034768
+      },
+      "price_per_gram": {
+        "24K": 169.5107,
+        "22K": 155.2718,
+        "18K": 127.1331,
+        "14K": 99.1638
+      }
+    },
+    "TH": {
+      "currency": "THB",
+      "fx_per_usd": 33.665,
+      "adjustments": {
+        "import_duty": 0.0,
+        "market_premium": 0.0,
+        "sales_tax": 0.0
+      },
+      "adjustments_verified": false,
+      "units": {
+        "gram": 1,
+        "baht weight": 15.244
+      },
+      "price_per_gram": {
+        "24K": 4463.1463,
+        "22K": 4088.242,
+        "18K": 3347.3597,
+        "14K": 2610.9406
+      }
+    },
+    "TR": {
+      "currency": "TRY",
+      "fx_per_usd": 50.016,
+      "adjustments": {
+        "import_duty": 0.0,
+        "market_premium": 0.0,
+        "sales_tax": 0.0
+      },
+      "adjustments_verified": false,
+      "units": {
+        "gram": 1,
+        "ounce": 31.1034768
+      },
+      "price_per_gram": {
+        "24K": 6630.8845,
+        "22K": 6073.8902,
+        "18K": 4973.1634,
+        "14K": 3879.0674
+      }
+    },
+    "US": {
+      "currency": "USD",
+      "fx_per_usd": 1.0,
+      "adjustments": {
+        "import_duty": 0.0,
+        "market_premium": 0.0,
+        "sales_tax": 0.0
+      },
+      "adjustments_verified": false,
+      "units": {
+        "gram": 1,
+        "ounce": 31.1034768
+      },
+      "price_per_gram": {
+        "24K": 132.5753,
+        "22K": 121.4389,
+        "18K": 99.4314,
+        "14K": 77.5565
+      }
+    },
+    "VN": {
+      "currency": "VND",
+      "fx_per_usd": 25721.0,
+      "adjustments": {
+        "import_duty": 0.0,
+        "market_premium": 0.0,
+        "sales_tax": 0.0
+      },
+      "adjustments_verified": false,
+      "units": {
+        "gram": 1,
+        "chi": 3.75,
+        "luong (tael)": 37.5
+      },
+      "price_per_gram": {
+        "24K": 3409968.4083,
+        "22K": 3123531.062,
+        "18K": 2557476.3062,
+        "14K": 1994831.5188
+      }
+    },
+    "ZA": {
+      "currency": "ZAR",
+      "fx_per_usd": 16.509,
+      "adjustments": {
+        "import_duty": 0.0,
+        "market_premium": 0.0,
+        "sales_tax": 0.0
+      },
+      "adjustments_verified": false,
+      "units": {
+        "gram": 1,
+        "ounce": 31.1034768
+      },
+      "price_per_gram": {
+        "24K": 2188.6851,
+        "22K": 2004.8355,
+        "18K": 1641.5138,
+        "14K": 1280.3808
+      }
+    }
+  }
+}
